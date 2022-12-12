@@ -1,0 +1,62 @@
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+
+<div class="container">
+  <div style="margin-top: 10px">
+    <form [formGroup]="userForm">
+      <mat-form-field appearance="outline">
+        <mat-label>User Name</mat-label>
+        <input formControlName="guest_name" matInput placeholder="Enter name">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Choose Building</mat-label>
+        <mat-select formControlName="area" placeholder="">
+          <mat-option value="Potatoes">Potatoes</mat-option>
+          <mat-option value="Vegetables">Vegetables</mat-option>
+          <mat-option value="Main Building">Main Building</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <!--Fix the styling with the date picker from angular materials-->
+      <mat-form-field appearance="outline">
+        <input formControlName="arrival_time" matInput [matDatepicker]="picker" >
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+<!-- THIS WORKS, BUT THE TIMESTAMP DOES NOT RESET ITSELF
+      <mat-form-field appearance="outline">
+        <input formControlName="arrival_time" matInput [(ngModel)]="arrivalTime" />
+      </mat-form-field>
+-->
+      <mat-form-field appearance="outline">
+        <mat-label>Company Name</mat-label>
+        <input formControlName="guest_company" matInput placeholder="Enter company">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input formControlName="phone_number" matInput placeholder="Enter phone number">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Host Name</mat-label>
+        <input formControlName="host_employee" matInput placeholder="Enter host name">
+      </mat-form-field>
+
+    </form>
+  </div>
+
+  <div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button style="margin-left: 8px;" mat-raised-button color="primary" (click)="addUser()">{{actionBtn}}</button>
+  </div>
+
+</div>
